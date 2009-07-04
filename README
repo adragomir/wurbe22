@@ -6,8 +6,14 @@ Phase 3: Profit!
 Requirements
 ============
 
+
+1. MongoDB
+2. PyMongo
+
+<del>
 1. Hadoop
 2. HBase
 3. Cascading
 4. Hive
 5. Pig
+</del>
