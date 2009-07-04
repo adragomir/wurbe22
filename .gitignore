@@ -1,0 +1,4 @@
+vendor/mongo-python-vendor
+vendor/mongodb-osx-x86_64-2009-07-03
+vendor/mongokit
+*.pyc
