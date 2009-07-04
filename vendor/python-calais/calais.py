@@ -38,7 +38,11 @@ class Calais():
         return PARAMS_XML % (" ".join('c:%s="%s"' % (k,escape(v)) for (k,v) in self.processing_directives.items() if v), " ".join('c:%s="%s"' % (k,escape(v)) for (k,v) in self.user_directives.items() if v), " ".join('c:%s="%s"' % (k,escape(v)) for (k,v) in self.external_metadata.items() if v))
 
     def rest_POST(self, content):
-        params = urllib.urlencode({'licenseID':self.api_key, 'content':content.encode('ascii', 'xmlcharrefreplace'), 'paramsXML':self._get_params_XML()})
+        params = urllib.urlencode({
+            'licenseID': self.api_key, 
+            'content': content.encode('ascii', 'xmlcharrefreplace'), 
+            'paramsXML': self._get_params_XML()
+        })
         headers = {"Content-type":"application/x-www-form-urlencoded"}
         conn = httplib.HTTPConnection("api.opencalais.com:80")
         conn.request("POST", "/enlighten/rest/", params, headers)
