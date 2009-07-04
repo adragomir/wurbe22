@@ -2,6 +2,7 @@ import pymongo
 
 class MongoPersistence(object):
     def __init__(self):
+        # localhost connection
         self.connection = pymongo.connection.Connection()
         self.db = self.connection.underpants
         self.entries = self.db.entries
@@ -13,9 +14,11 @@ class MongoPersistence(object):
         self.entries.create_index("updated", pymongo.ASCENDING)
 
     def add(self, obj):
-        print "Saving entry...."
         self.db.entries.save(obj)
 
-    def find(conditions):
-        pass
+    def find(self, conditions):
+        return self.db.entries.find(conditions)
+
+    def get_non_calaised_entries(self):
+        return self.find({"calaised": None})
 
