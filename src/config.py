@@ -1,4 +1,4 @@
 friendfeed = {
-    "username":
-    "password":
+    "username": None, 
+    "password": None
 }
