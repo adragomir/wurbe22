@@ -1,4 +1,3 @@
-#!user/bin/env python
 from __future__ import with_statement
 
 import sys
@@ -14,9 +13,9 @@ __jsdateregexp__ = re.compile(r'"\*\*(new Date\([0-9,]+\))"')
 class __JSONDateEncoder__(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime.datetime):
-            return str(time.mktime(obj.timetuple()))
+            return time.mktime(obj.timetuple())
         if isinstance(obj, datetime.date):
-            return str(time.mktime(obj.timetuple()))
+            return time.mktime(obj.timetuple())
         return json.JSONEncoder.default(self, obj)
 
 def dumps(obj, *args, **kwargs):
@@ -51,4 +50,5 @@ class FriendFeedImport(object):
                 get_more = True
             else:
                 get_more = False
+            get_more = False
         return all_entries_now
