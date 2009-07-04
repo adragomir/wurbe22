@@ -8,4 +8,3 @@ class Ingester(object):
     def ingest(self, items):
         for item in items:
             self.persistence.add_raw(item)
-
