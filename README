@@ -2,6 +2,7 @@ Phase 1: Collect Underpants
 Phase 2: ?
 Phase 3: Profit!
 
+PYTHONPATH=./src:./vendor/friendfeed:./vendor/python-calais:$PYTHONPATH python bin/calaisify.py
 
 Requirements
 ============
