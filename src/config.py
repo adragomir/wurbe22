@@ -1,0 +1,4 @@
+friendfeed = {
+    "username":
+    "password":
+}
