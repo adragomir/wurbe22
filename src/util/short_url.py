@@ -11,3 +11,7 @@ def find_real(short_url):
     conn.perform()
     a = conn.getinfo(pycurl.EFFECTIVE_URL)
     return a
+
+re_short_url = re.compile('http:\/\/(tr\.im|bit.ly)')
+def string_has_short_url(s):
+    return re_short_url.search(s) is not None
