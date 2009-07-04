@@ -1,5 +1,6 @@
-from util import lru
+from util.lru import lru_cache
 import pycurl
+import re
 
 @lru_cache(maxsize=10000)
 def find_real(short_url):
@@ -12,6 +13,6 @@ def find_real(short_url):
     a = conn.getinfo(pycurl.EFFECTIVE_URL)
     return a
 
-re_short_url = re.compile('http:\/\/(tr\.im|bit.ly)')
-def string_has_short_url(s):
-    return re_short_url.search(s) is not None
+re_short_url = re.compile('(http:\/\/(?:tr\.im|bit.ly)\/[^ ]*)')
+def has(s):
+    return re_short_url.findall(s)
